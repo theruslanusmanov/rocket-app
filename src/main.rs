@@ -6,6 +6,6 @@ fn index() -> &'static str {
 }
 
 #[launch]
-fn rocket() -> _ {
-    rocket::build().mount("/", routes![index])
+async fn main() {
+    let _ = rocket::build().mount("/", routes![index]).launch().await;
 }
